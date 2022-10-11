@@ -71,7 +71,7 @@ function Register(props) {
                   </label>
                   <input
                     type="text"
-                    name="fullName"
+                    name="name"
                     id="fullName"
                     placeholder="Your Name"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -130,7 +130,7 @@ const RegisterWithFormik = withFormik({
   mapPropsToValues: () => ({
     email: "",
     password: "",
-    fullName: "",
+    name: "",
     phoneNumber: "",
   }),
   validationSchema: Yup.object().shape({
@@ -142,15 +142,16 @@ const RegisterWithFormik = withFormik({
       .required("Password is required!")
       .min(6, "Password must have min 6 characters")
       .max(32, "Password have max 32 characters"),
-    fullName: Yup.string().required("Name is required!"),
+    name: Yup.string().required("Name is required!"),
     phoneNumber: Yup.string()
       .required("Phone Number  is required!")
       .max(10, "Phone Number have max 10 characters"),
   }),
   handleSubmit: (values, { props, setSubmitting }) => {
-    const { email, password, fullName, phoneNumber } = values;
+    const { email, password, name, phoneNumber } = values;
+    console.log( email, password, name, phoneNumber);
     props.dispatch(
-      registerJiraReportBugActions(email, password, fullName, phoneNumber)
+      registerJiraReportBugActions(email, password, name, phoneNumber)
     );
   },
 })(Register);
