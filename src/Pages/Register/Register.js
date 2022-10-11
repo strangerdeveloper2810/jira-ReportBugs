@@ -149,7 +149,6 @@ const RegisterWithFormik = withFormik({
   }),
   handleSubmit: (values, { props, setSubmitting }) => {
     const { email, password, name, phoneNumber } = values;
-    console.log( email, password, name, phoneNumber);
     props.dispatch(
       registerJiraReportBugActions(email, password, name, phoneNumber)
     );
