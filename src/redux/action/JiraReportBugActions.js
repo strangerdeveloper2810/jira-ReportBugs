@@ -14,14 +14,14 @@ export const siginJiraReportBugActions = (email, password) => ({
 export const registerJiraReportBugActions = (
   email,
   password,
-  fullName,
+  name,
   phoneNumber
 ) => ({
   type: USER_REGISTER_API,
   userRegister: {
     email: email,
     password: password,
-    fullName: fullName,
+    name: name,
     phoneNumber: phoneNumber,
   },
 });
