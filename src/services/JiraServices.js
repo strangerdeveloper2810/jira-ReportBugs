@@ -3,10 +3,11 @@ import { DOMAIN } from "../util/constants/systemSetting";
 export class JiraServices {
   constructor() {}
 
-  signupApi = () => {
+  signupApi = (userRegister) => {
     return axios({
       url: `${DOMAIN}/Users/signup`,
       method: "POST",
+      data: userRegister
     });
   };
 

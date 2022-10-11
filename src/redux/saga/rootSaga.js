@@ -3,5 +3,6 @@ import * as JiraAction from "./UserJiraSagaAction"
 export function * rootSaga() {
     yield all([
         JiraAction.actionSignin(),
+        JiraAction.actionRegister()
     ]);
 }
